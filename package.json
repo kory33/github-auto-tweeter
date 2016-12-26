@@ -1,0 +1,16 @@
+{
+  "name": "github-tweeter",
+  "version": "0.0.1",
+  "description": "Automated twitter-reactions triggered by github",
+  "main": "githubTweeter.js",
+  "dependencies": {
+    "github-webhook-handler": "^0.6.0",
+    "twitter": "^1.7.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kory33",
+  "license": "MIT"
+}
