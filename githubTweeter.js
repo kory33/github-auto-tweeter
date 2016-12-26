@@ -5,7 +5,7 @@ const Http = require("http");
 const Twitter = require("twitter");
 const CreateHandler = require("github-webhook-handler");
 
-const SETTINGS_FILENAME = ".settings";
+const SETTINGS_FILENAME = ".settings.json";
 
 const settings = JSON.parse(Fs.readFileSync(SETTINGS_FILENAME, "utf-8"));
 
