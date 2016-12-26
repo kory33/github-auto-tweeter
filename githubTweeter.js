@@ -21,7 +21,7 @@ const handler = CreateHandler({
 const getTweetText = (hookEventName) => {
     switch(hookEventName){
         case "release":
-            return settings.twitter.releaseTweet.replace(/repoName/g, )
+            return settings.twitter.releaseTweet;
         default:
             return null;
     }
@@ -50,9 +50,14 @@ handler.on("release", (event) => {
         return;
     }
 
-    autoTweeter.updateStatus(tweetText, (data) => {
-        console.log(data);
-    });
+    autoTweeter.updateStatus(
+        tweetText.replace(/{{(.*?)}}/g, (all, group) => {
+            return payload[group] || "null";
+        }),
+        (data) => {
+            console.log(data);
+        }
+    );
 });
 
 handler.on("error", (error) => {
