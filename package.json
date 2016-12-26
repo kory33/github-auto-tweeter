@@ -1,8 +1,8 @@
 {
-  "name": "github-tweeter",
+  "name": "github-auto-tweeter",
   "version": "0.0.1",
   "description": "Automated twitter-reactions triggered by github",
-  "main": "githubTweeter.js",
+  "main": "githubAutoTweeter.js",
   "dependencies": {
     "github-webhook-handler": "^0.6.0",
     "twitter": "^1.7.0"
