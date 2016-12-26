@@ -50,11 +50,11 @@ handler.on("release", (event) => {
         return;
     }
 
-    autoTweeter.updateStatus(
-        tweetText.replace(/{{(.*?)}}/g, (all, group) => {
-            return payload[group] || "null";
-        }),
-        (data) => {
+    const replacedTweetText = tweetText.replace(/{{(.*?)}}/g, (all, group) => {
+        return eval("payload." + group) || "null";
+    });
+
+    autoTweeter.updateStatus(replacedTweetText, (data) => {
             console.log(data);
         }
     );
