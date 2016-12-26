@@ -10,18 +10,18 @@ const SETTINGS_FILENAME = ".settings";
 const settings = JSON.parse(Fs.readFileSync(SETTINGS_FILENAME, "utf-8"));
 
 const port = settings.port || process.env.port || 8080;
-const secret = settings.github.secret;
 const repositoryOwner = settings.github.owner;
-const autoTweeter = new Twitter(settings.twitter);
+
+const autoTweeter = new Twitter(settings.twitter.keys);
 const handler = CreateHandler({
     path: "/",
-    secret: secret
+    secret: settings.github.secret
 });
 
 const getTweetText = (hookEventName) => {
     switch(hookEventName){
         case "release":
-            return settings.twitter.releaseTweet;
+            return settings.twitter.releaseTweet || null;
         default:
             return null;
     }
