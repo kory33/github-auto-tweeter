@@ -43,7 +43,7 @@ handler.on("release", (event) => {
         return;
     }
 
-    const tweetText = getTweetText("release", payload);
+    const tweetText = getTweetText("release");
 
     if (tweetText !== null || tweetText === "") {
         console.log("Tweet string is empty!");
